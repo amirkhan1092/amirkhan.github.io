@@ -32,19 +32,22 @@ $fp =fgets($myfile);
 fclose($myfile);
 ?>
     
+const fs = require("fs");
+let st;
 
- 
- 
- <?php if($fp=="off" || $fp=="0") {
-?>	
+fs.readFile("sample.txt", (err, data) => {
+    st = data.toString();
+});
+
+
+if(st=="off" || st=="0") {
+
 <img id="myImage" src = "pic_bulboff.gif" width = "155" height = "250">	
-<?php }
- ?>
- <?php if($fp=="on"|| $fp=="1" ) {
-?>	
+ }
+
+if(st=="on"|| st=="1" ) {	
 <img id="myImage" src = "pic_bulbon.gif" width = "155" height = "250" >	
-<?php }
- ?>
+}
 
 
 
